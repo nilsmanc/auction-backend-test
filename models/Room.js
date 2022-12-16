@@ -6,6 +6,7 @@ const RoomSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    startTime: String,
   },
   { timestamps: true },
 )

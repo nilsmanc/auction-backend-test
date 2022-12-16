@@ -4,7 +4,7 @@ export const getRoomUsers = async (req, res) => {
   const roomId = req.params.id
 
   try {
-    const users = await UserModel.find({ room: { _id: roomId } }).populate('user')
+    const users = await UserModel.find({ room: { _id: roomId } }).exec()
 
     res.json(users)
   } catch (err) {
