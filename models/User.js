@@ -29,6 +29,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 })
 
 export default mongoose.model('User', UserSchema)
