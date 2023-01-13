@@ -1,6 +1,8 @@
-import UserModel from '../models/User.js'
+import { Request, Response } from 'express'
 
-export const getRoomUsers = async (req, res) => {
+import UserModel from '../models/User'
+
+export const getRoomUsers = async (req: Request, res: Response) => {
   const roomId = req.params.id
 
   try {

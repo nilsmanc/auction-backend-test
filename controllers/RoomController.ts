@@ -1,6 +1,8 @@
-import RoomModel from '../models/Room.js'
+import { Request, Response } from 'express'
 
-export const getRoom = async (req, res) => {
+import RoomModel from '../models/Room'
+
+export const getRoom = async (req: Request, res: Response) => {
   try {
     const roomId = req.params.id
 
@@ -14,7 +16,7 @@ export const getRoom = async (req, res) => {
   }
 }
 
-export const createRoom = async (req, res) => {
+export const createRoom = async (req: Request, res: Response) => {
   try {
     const doc = new RoomModel({
       title: req.body.title,
@@ -30,7 +32,7 @@ export const createRoom = async (req, res) => {
   }
 }
 
-export const setStartTime = async (req, res) => {
+export const setStartTime = async (req: Request, res: Response) => {
   try {
     const roomId = req.params.id
 

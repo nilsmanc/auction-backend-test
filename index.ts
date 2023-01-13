@@ -1,13 +1,14 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
-import { getRoomUsers } from './controllers/UserController.js'
-import { createRoom, getRoom, setStartTime } from './controllers/RoomController.js'
+
+import { getRoomUsers } from './controllers/UserController'
+import { createRoom, getRoom, setStartTime } from './controllers/RoomController'
 
 mongoose.set('strictQuery', false)
 
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(process.env.MONGODB_URL as string)
   .then(() => console.log('Database OK'))
   .catch((err) => console.log('Database error', err))
 
@@ -22,9 +23,6 @@ app.get('/rooms/:id', getRoom)
 app.post('/rooms', createRoom)
 app.patch('/rooms/:id', setStartTime)
 
-app.listen(process.env.PORT || 4444, (err) => {
-  if (err) {
-    return console.log(err)
-  }
+app.listen(process.env.PORT || 4444, () => {
   console.log('Server OK')
 })
